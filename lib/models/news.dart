@@ -1,15 +1,16 @@
 //=========MODELOS DE LA APLICACION PARA VISUALIZACION DE NOTICIAS==============
 
+//==================MODELO DE LA RESPUESTA API-REST JSON =======================
 class NewsApiModel {
-  String status;
-  int totalResults;
-  List<News> articlesList;
+  String status; //staus de pagina
+  int totalResults; //total de resultados
+  List<News> articlesList; //lista tipo News() abajo
 
-  NewsApiModel(this.status, this.totalResults, this.articlesList);
+  NewsApiModel(this.status, this.totalResults, this.articlesList); //constructor
 
   NewsApiModel.fromjson(Map<String, dynamic> map) {
+    //clase desde el json
     var mapArticles = map['articles'] as List;
-
     status = map['status'];
     totalResults = map['totalResults'];
     articlesList = mapArticles.map((json) => News.fromjson(json)).toList();

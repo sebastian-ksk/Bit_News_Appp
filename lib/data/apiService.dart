@@ -23,15 +23,19 @@ class ApiService {
     }
   }
 
+  //=====================FUNCION PARA OPTENER JSON API=========================
   GetDio({@required int optionUrl}) async {
-    var dio = Dio();
+    //funcion de tipo asincrona
+    var dio = Dio(); //mientrtas se ejecuta se ejecutan
+    //otras tareas
 
     Response response = await dio.get(UrlForApi(optionUrl));
 
     if (response.statusCode == 200) {
+      //si fue igual a 200 realiza la decodificacion
       return NewsApiModel.fromjson(response.data);
     } else {
-      print('Algo ha salido mal');
+      print('URL ERROR....');
     }
   }
 }

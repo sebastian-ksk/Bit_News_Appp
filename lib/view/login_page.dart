@@ -4,6 +4,7 @@ import 'package:app1/util/styles.dart';
 import 'package:app1/util/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:app1/view/news_page.dart';
 
 class LoginPage extends StatefulWidget {
   @override

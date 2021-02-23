@@ -14,6 +14,24 @@ class _NewsPageState extends State<NewsPage> {
 
   String viewName = 'NewsList';
 
+  Widget _selector_News(String tittle, int intNew) {
+    return InkWell(
+      onTap: () {
+        setState(() {
+          Newsint = intNew;
+          viewName = 'NewsList';
+        });
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(13),
+        child: Text(
+          tittle,
+          style: Styles.drawerOptionStyle,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,88 +63,32 @@ class _NewsPageState extends State<NewsPage> {
                   'https://bit.institute/images/Instituto-Cursos-Programacion.png'),
             )),
             //===============TESLA ARTICULOS ==================================
-            InkWell(
-              onTap: () {
-                setState(() {
-                  Newsint = 1;
-                  viewName = 'NewsList';
-                });
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(13),
-                child: Text(
-                  '> All articles about Tesla from the last month, sorted by recent first',
-                  style: Styles.drawerOptionStyle,
-                ),
-              ),
-            ),
+            _selector_News(
+                '> All articles about Tesla from the last month, sorted by recent first',
+                1),
             //==================================================================
             // ==================ARTICULOS DE NEGOCIOS =========================
-            InkWell(
-              onTap: () {
-                setState(() {
-                  Newsint = 2;
-                  viewName = 'NewsList';
-                });
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(13),
-                child: Text(
-                  '> Top business headlines in the US right now',
-                  style: Styles.drawerOptionStyle,
-                ),
-              ),
+            _selector_News(
+              '> Top business headlines in the US right now',
+              2,
             ),
             // =================================================================
-            //=========================APPLE ARTICULOS ========================
-            InkWell(
-              onTap: () {
-                setState(() {
-                  Newsint = 3;
-                  viewName = 'NewsList';
-                });
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(13),
-                child: Text(
-                  '> All articles mentioning Apple from yesterday, sorted by popular publishers first',
-                  style: Styles.drawerOptionStyle,
-                ),
-              ),
+            //=========================APPLE ARTICULOS =========================
+            _selector_News(
+              '> All articles mentioning Apple from yesterday, sorted by popular publishers first',
+              3,
             ),
             // =================================================================
             //========================TECH ARTICULOS ===========================
-            InkWell(
-              onTap: () {
-                setState(() {
-                  Newsint = 4;
-                  viewName = 'NewsList';
-                });
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(13),
-                child: Text(
-                  '> Top headlines from TechCrunch right now',
-                  style: Styles.drawerOptionStyle,
-                ),
-              ),
+            _selector_News(
+              '> Top headlines from TechCrunch right now',
+              4,
             ),
             //==================================================================
             //========================WALL STREE ARTICULOS =====================
-            InkWell(
-              onTap: () {
-                setState(() {
-                  Newsint = 5;
-                  viewName = 'NewsList';
-                });
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(13),
-                child: Text(
-                  '> All articles published by the Wall Street Journal in the last 6 months, sorted by recent first',
-                  style: Styles.drawerOptionStyle,
-                ),
-              ),
+            _selector_News(
+              'All articles published by the Wall Street Journal in the last 6 months, sorted by recent first',
+              5,
             ),
             //==================================================================
           ],
@@ -136,6 +98,7 @@ class _NewsPageState extends State<NewsPage> {
 
       body: Container(
         padding: EdgeInsets.only(right: 10, left: 10),
+        //llamado a recontructor de vista
         child: BuildView(viewName: viewName, intNews: Newsint),
       ),
     );
