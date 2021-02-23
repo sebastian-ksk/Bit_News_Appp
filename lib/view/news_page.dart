@@ -44,6 +44,7 @@ class _NewsPageState extends State<NewsPage> {
               child: Image.network(
                   'https://bit.institute/images/Instituto-Cursos-Programacion.png'),
             )),
+            //===============TESLA ARTICULOS ==================================
             InkWell(
               onTap: () {
                 setState(() {
@@ -59,6 +60,8 @@ class _NewsPageState extends State<NewsPage> {
                 ),
               ),
             ),
+            //==================================================================
+            // ==================ARTICULOS DE NEGOCIOS =========================
             InkWell(
               onTap: () {
                 setState(() {
@@ -74,27 +77,58 @@ class _NewsPageState extends State<NewsPage> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(13),
-              child: Text(
-                '> All articles mentioning Apple from yesterday, sorted by popular publishers first',
-                style: Styles.drawerOptionStyle,
+            // =================================================================
+            //=========================APPLE ARTICULOS ========================
+            InkWell(
+              onTap: () {
+                setState(() {
+                  Newsint = 3;
+                  viewName = 'NewsList';
+                });
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(13),
+                child: Text(
+                  '> All articles mentioning Apple from yesterday, sorted by popular publishers first',
+                  style: Styles.drawerOptionStyle,
+                ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(13),
-              child: Text(
-                '> Top headlines from TechCrunch right now',
-                style: Styles.drawerOptionStyle,
+            // =================================================================
+            //========================TECH ARTICULOS ===========================
+            InkWell(
+              onTap: () {
+                setState(() {
+                  Newsint = 4;
+                  viewName = 'NewsList';
+                });
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(13),
+                child: Text(
+                  '> Top headlines from TechCrunch right now',
+                  style: Styles.drawerOptionStyle,
+                ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(13),
-              child: Text(
-                '> All articles published by the Wall Street Journal in the last 6 months, sorted by recent first',
-                style: Styles.drawerOptionStyle,
+            //==================================================================
+            //========================WALL STREE ARTICULOS =====================
+            InkWell(
+              onTap: () {
+                setState(() {
+                  Newsint = 5;
+                  viewName = 'NewsList';
+                });
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(13),
+                child: Text(
+                  '> All articles published by the Wall Street Journal in the last 6 months, sorted by recent first',
+                  style: Styles.drawerOptionStyle,
+                ),
               ),
             ),
+            //==================================================================
           ],
         ),
       ),
