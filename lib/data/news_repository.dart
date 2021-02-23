@@ -1,6 +1,7 @@
 import 'package:app1/models/news.dart';
 
 class NewsRepository {
+  //==========================CREACION DE ARREGLO DE NOTICIAS===================
   final NEWS = [
     News(
         urlToImage:

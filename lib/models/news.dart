@@ -1,3 +1,5 @@
+//=========MODELOS DE LA APLICACION PARA VISUALIZACION DE NOTICIAS==============
+
 class NewsApiModel {
   String status;
   int totalResults;
@@ -5,7 +7,7 @@ class NewsApiModel {
 
   NewsApiModel(this.status, this.totalResults, this.articlesList);
 
-  NewsApiModel.fromjson(Map<String, dynamic>map){
+  NewsApiModel.fromjson(Map<String, dynamic> map) {
     var mapArticles = map['articles'] as List;
 
     status = map['status'];
@@ -15,6 +17,7 @@ class NewsApiModel {
 }
 
 class News {
+  //======================PROPIEDADES DE CADA NOTICIA===========================
   Source source;
   String urlToImage;
   String title;
@@ -23,19 +26,19 @@ class News {
   String publishedAt;
   String content;
   String description;
-
-  News({
-    this.source,
-    this.urlToImage,
-    this.title,
-    this.url,
-    this.author,
-    this.publishedAt,
-    this.content,
-    this.description
-  });
-
-  News.fromjson(Map<String, dynamic>map){
+  //============================================================================
+  //==============================CONSTRUCTOR DEL METODO========================
+  News(
+      {this.source,
+      this.urlToImage,
+      this.title,
+      this.url,
+      this.author,
+      this.publishedAt,
+      this.content,
+      this.description});
+  //===========================================================================
+  News.fromjson(Map<String, dynamic> map) {
     source = Source.fromjson(map['source']);
     author = map['author'];
     title = map['title'];
@@ -53,9 +56,8 @@ class Source {
 
   Source(this.id, this.name);
 
-  Source.fromjson(Map<String, dynamic>map){
+  Source.fromjson(Map<String, dynamic> map) {
     id = map['id'];
     name = map['name'];
   }
-
 }

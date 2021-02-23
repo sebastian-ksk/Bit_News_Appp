@@ -5,7 +5,6 @@ import 'package:app1/view/widgets/news_card.dart';
 import 'package:flutter/material.dart';
 
 class NewsPage extends StatefulWidget {
-
   @override
   _NewsPageState createState() => _NewsPageState();
 }
@@ -18,6 +17,7 @@ class _NewsPageState extends State<NewsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //======================Barra superior de noticias========================
       appBar: AppBar(
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.grey),
@@ -32,6 +32,8 @@ class _NewsPageState extends State<NewsPage> {
           )
         ],
       ),
+      //========================================================================
+      //=====================Barra lateral de navegacion========================
       drawer: Drawer(
         child: Column(
           children: [
@@ -42,9 +44,8 @@ class _NewsPageState extends State<NewsPage> {
               child: Image.network(
                   'https://bit.institute/images/Instituto-Cursos-Programacion.png'),
             )),
-
             InkWell(
-              onTap: (){
+              onTap: () {
                 setState(() {
                   Newsint = 1;
                   viewName = 'NewsList';
@@ -59,7 +60,7 @@ class _NewsPageState extends State<NewsPage> {
               ),
             ),
             InkWell(
-              onTap: (){
+              onTap: () {
                 setState(() {
                   Newsint = 2;
                   viewName = 'NewsList';
@@ -97,6 +98,8 @@ class _NewsPageState extends State<NewsPage> {
           ],
         ),
       ),
+      //========================================================================
+
       body: Container(
         padding: EdgeInsets.only(right: 10, left: 10),
         child: BuildView(viewName: viewName, intNews: Newsint),
